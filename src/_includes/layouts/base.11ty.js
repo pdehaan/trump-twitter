@@ -1,7 +1,7 @@
 class Base {
     render(data) {
         return `<!DOCTYPE html>
-        <html>
+        <html lang="en">
             <head>
                 <title>Trump Twitter Archive</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
