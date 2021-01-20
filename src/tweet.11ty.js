@@ -12,15 +12,19 @@ class Tweet {
     }
 
     render(data) {
-        return `<section>
+        return `<hr>
+        <section>
             <figure>
                 <blockquote cite="https://twitter.com/realDonaldTrump/status/${data.tweet.id}">
                     <p>${data.tweet.text}</p>
                 </blockquote>
                 <figcaption>
                     <a href="https://twitter.com/realDonaldTrump">@realDonaldTrump</a>
+                    <br><br>
                     <b>Date:</b> ${data.tweet.date}
+                    <br>
                     <b>Favorites:</b> ${data.tweet.favorites}
+                    <br>
                     <b>Retweets:</b> ${data.tweet.retweets}
                     <details>
                         <summary>Additional Metadata</summary>

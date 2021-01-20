@@ -1,13 +1,61 @@
 ---
 layout: layouts/base
 ---
+<section>
+    <h2>How to use this archive</h2>
+    <p>The archive functions as a drop-in replacement for the now removed tweets.
+        <br><br>
+        ❌ <a href="https://twitter.com/realDonaldTrump/status/98454970654916600">https://<mark>twitter.com</mark>/realDonaldTrump/status/98454970654916600</a>
+        <br><br>
+        ✔️ <a href="https://trumptwitter.org/realDonaldTrump/status/98454970654916600">https://<mark>trumptwitter.org</mark>/realDonaldTrump/status/98454970654916600</a>
+    </p>
+    <label for="twitterURL">You can also paste a Twitter URL below and be redirected to the archived tweet:</label>
+    <div id="tweetRedirect" style="display: flex; width: 100%; justify-content: space-between;">
+        <input id="twitterURL" name="twitterURL" type="input" style="width: 75%;" placeholder="e.g. https://twitter.com/realDonaldTrump/status/98454970654916600"></input>
+        <button id="findTweet"><b>Find Tweet</b></button>
+    </div>
+    <small id="invalidURL" style="color:red; display: none;">The URL entered is not a valid Trump tweet.</small>
+</section>
+<hr>
+<section>    
+    <details>
+        <summary>
+            Frequently Asked Questions
+        </summary>
+        <ul>
+            <li><b>Where is your data from?</b></li>
+            <p>
+                A similar, excellent <a href="https://www.thetrumparchive.com/">project.</a> The orginal dataset has been referenced by referenced by <em>"FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with almost every major news outlet."</em>
+            </p>
+            <p>
+                This project differs from the above in that it focuses on providing an easy to reference replacement to now-broken Tweet URLs.
+            </p>
 
-<p>This project archives the Tweets of former President Donald J. Trump. On January 8th, 2021, the President was <a href="https://blog.twitter.com/en_us/topics/company/2020/suspension.html">permanently banned from Twitter.com</a>, after inciting an attack on the United States Capitol.</p>
+            <li><b>How did you make this website?</b></li>
+            <p>
+                I used <a href="https://developer.mozilla.org/en-US/docs/Learn">HTML, CSS, and JavaScript.</a> I also used <a href="https://www.11ty.dev/">Eleventy</a>, which helped generate tens of thousands of pages from the Twitter data. 
+            </p>
 
-<p>The archive functions as a drop-in replacement for the now removed tweets:
-
-<a href="https://twitter.com/realDonaldTrump/status/98454970654916600">https://<mark>twitter.com</mark>/realDonaldTrump/status/98454970654916600</a> --> <a href="https://trumptwitter.org/realDonaldTrump/status/98454970654916600">https://<mark>trumptwitter.org</mark>/realDonaldTrump/status/98454970654916600</a> </p>
-
-<button>First Tweet</button>
-<button>Random Tweet</button>
-<button>Last Tweet</button>
+            <li><b>Can I contact you?</b></li>
+            <p>
+                Yes, send an email to <a href="mailto:contact@trumptwitter.org">contact@trumptwitter.org</a>
+            </p>
+        </ul>
+    </details>
+    <script>
+        // Find Tweet
+        document.getElementById('findTweet').addEventListener('click', () => {
+            try {
+                const url = new URL(document.getElementById('twitterURL').value);
+                if (url.hostname === "twitter.com") {
+                    url.hostname = "trumptwitter.org";
+                } else {
+                    throw new Error("Invalid URL");
+                }
+                window.location.href = url.href;
+            } catch (error) {
+                document.getElementById("invalidURL").style.display = "block";
+            }
+        })
+    </script>
+</section>
