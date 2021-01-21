@@ -2,7 +2,7 @@ class Tweet {
     data() {
         return {
             pagination: {
-                data: "short",
+                data: "tweets",
                 size: 1,
                 alias: "tweet"
             },

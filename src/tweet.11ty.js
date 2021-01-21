@@ -3,7 +3,7 @@ class Tweet {
         return {
             layout: "layouts/base",
             pagination: {
-                data: "short",
+                data: "tweets",
                 size: 1,
                 alias: "tweet"
             },
