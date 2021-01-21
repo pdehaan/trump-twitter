@@ -16,7 +16,7 @@ layout: layouts/base
     <h2>How to use this archive</h2>
     <p>The archive functions as a drop-in replacement for the now removed tweets.
         <br><br>
-        ❌ <a href="https://twitter.com/realDonaldTrump/status/98454970654916600">https://<mark class="bad">twitter.com</mark>/realDonaldTrump/status/98454970654916600</a>
+        ❌ <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/realDonaldTrump/status/98454970654916600">https://<mark class="bad">twitter.com</mark>/realDonaldTrump/status/98454970654916600</a>
         <br><br>
         ✅ <a href="https://trumptwitter.org/realDonaldTrump/status/98454970654916600">https://<mark class="good">trumptwitter.org</mark>/realDonaldTrump/status/98454970654916600</a>
     </p>
@@ -30,9 +30,25 @@ layout: layouts/base
 <section>
     <details>
         <summary>
-            Web Extension (Coming Soon)
+            Web Extension
         </summary>
-        <p>Install the <em>Trump Twitter Archive Web Extension</em> to your browser to automatically swap broken <mark class="bad">twitter.com</mark> links to Trump's tweets with working <mark class="good">trumptwitter.org</mark> links--on <em>every</em> site you visit.</p>
+        <p>Install the <em>Trump Twitter Archive Web Extension</em> on your browser to automatically swap broken <mark class="bad">twitter.com</mark> links to Trump's tweets with working <mark class="good">trumptwitter.org</mark> links--on <em>every</em> site you visit.</p>
+        <ul>
+            <li>
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/trump-twitter-archive/">Add to Firefox</a>
+            </li>
+            <li>
+                <p>Add to Chrome <em>(Coming Soon)</em></p>
+            </li>
+        </ul>
+        <p>Want to test if the extension is working? Try clicking on the Twitter link above, marked by the ❌</p>
+        <hr>
+        <h4>Do you manage a website?</h4>
+        <p>You can also include the following JavaScript in your website to swap out all links on a page.</p>
+        <div style="display: flex; justify-content: space-between;">
+            <input id="JSText" type="text" style="width: 75%" value="<script>for(let link of document.links){if(link.href.includes('twitter.com/realDonaldTrump/status/')){link.href=link.href.replace('twitter.com/realDonaldTrump/status/','trumptwitter.org/realDonaldTrump/status/');}}</script>"></input>
+            <button id="copyJSText">Copy</button>
+        <div>
     </details>
 </section>
 <section>    
@@ -65,7 +81,7 @@ layout: layouts/base
             <li>
                 <b>Can I contact you?</b>
                 <p>
-                    Yes, send an email to <a href="mailto:contact@trumptwitter.org">contact@trumptwitter.org</a>
+                    Yes, send an email to <a href="mailto:trumptwitterorg@gmail.com">trumptwitterorg@gmail.com</a>
                 </p>
             </li>
         </ul>
@@ -86,4 +102,12 @@ layout: layouts/base
             document.getElementById("invalidURL").style.display = "block";
         }
     })
+
+    function copy() {
+        var copyText = document.querySelector("#JSText");
+        copyText.select();
+        document.execCommand("copy");
+    }
+    document.querySelector("#copyJSText").addEventListener("click", copy);
+
 </script>

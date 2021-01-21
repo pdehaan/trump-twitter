@@ -1,5 +1,5 @@
 module.exports = function (config) {
-  // config.addPassthroughCopy("_data");
+  // config.addPassthroughCopy({"src/_data/tweets.json": "tweets.json"});
   return {
     dir: {
       input: './src',
