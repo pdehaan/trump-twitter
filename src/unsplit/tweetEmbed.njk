@@ -1,8 +1,14 @@
-class Tweet {
+---
+    pagination:
+        data: tweets
+        size: 1000
+    permalink: "splitTemplates/tweetEmbed{{ pagination.pageNumber }}.11ty.js"
+---
+class TweetEmbed {
     data() {
         return {
             pagination: {
-                data: "tweets",
+                data: "bigdata{{ pagination.pageNumber }}",
                 size: 1,
                 alias: "tweet"
             },
@@ -36,4 +42,4 @@ class Tweet {
     }
 }
 
-module.exports = Tweet;
+module.exports = TweetEmbed;

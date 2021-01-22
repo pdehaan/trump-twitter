@@ -1,9 +1,15 @@
+---
+    pagination:
+        data: tweets
+        size: 1000
+    permalink: "splitTemplates/tweet{{ pagination.pageNumber }}.11ty.js"
+---
 class Tweet {
-    data() {
+    data(data) {
         return {
             layout: "layouts/base",
             pagination: {
-                data: "tweets",
+                data: "bigdata{{ pagination.pageNumber }}",
                 size: 1,
                 alias: "tweet"
             },
