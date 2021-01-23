@@ -22,7 +22,7 @@ layout: layouts/base
     </p>
     <label for="twitterURL">You can also paste a Twitter URL below and be redirected to the archived tweet:</label>
     <div id="tweetRedirect" style="display: flex; width: 100%; justify-content: space-between;">
-        <input id="twitterURL" name="twitterURL" type="input" style="width: 75%;" placeholder="e.g. https://twitter.com/realDonaldTrump/status/98454970654916600"></input>
+        <input id="twitterURL" name="twitterURL" type="input" style="width: 75%;" placeholder="e.g. https://twitter.com/realDonaldTrump/status/98454970654916600" />
         <button id="findTweet"><b>Find Tweet</b></button>
     </div>
     <small id="invalidURL" style="color:red; display: none;">The URL entered is not a valid Trump tweet.</small>
@@ -46,9 +46,9 @@ layout: layouts/base
         <h4>Do you manage a website?</h4>
         <p>You can also include the following JavaScript in your website to swap out all links on a page.</p>
         <div style="display: flex; justify-content: space-between;">
-            <input id="JSText" type="text" style="width: 75%" value="<script>for(let link of document.links){if(link.href.includes('twitter.com/realDonaldTrump/status/')){link.href=link.href.replace('twitter.com/realDonaldTrump/status/','trumptwitter.org/realDonaldTrump/status/');}}</script>"></input>
+            <input id="JSText" type="text" style="width: 75%" value="<script>for(let link of document.links){if(link.href.includes('twitter.com/realDonaldTrump/status/')){link.href=link.href.replace('twitter.com/realDonaldTrump/status/','trumptwitter.org/realDonaldTrump/status/');}}</script>" />
             <button id="copyJSText">Copy</button>
-        <div>
+        </div>
     </details>
 </section>
 <section>    
